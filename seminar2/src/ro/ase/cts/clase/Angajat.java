@@ -1,7 +1,5 @@
 package ro.ase.cts.clase;
 
-import java.util.Arrays;
-
 public class Angajat extends Aplicant {
 	private String ocupatie;
 	private int salariu;
@@ -47,7 +45,7 @@ public class Angajat extends Aplicant {
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("Angajat: ").append(super.toString()).append("Ocupatie= ").append(ocupatie)
-		.append("Salariu= ").append(salariu);
+				.append("Salariu= ").append(salariu);
 		return stringBuilder.toString();
 	}
 

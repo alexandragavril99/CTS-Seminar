@@ -7,15 +7,15 @@ import java.util.Scanner;
 import ro.ase.cts.clase.Aplicant;
 
 public abstract class IReader {
-	
+
 	protected String filePath;
 
 	public IReader(String filePath) {
 		super();
 		this.filePath = filePath;
 	}
-	
-	public abstract List<Aplicant> readAplicants()  throws FileNotFoundException, NumberFormatException;
+
+	public abstract List<Aplicant> readAplicants() throws FileNotFoundException, NumberFormatException;
 
 	public void citireAplicant(Scanner input, Aplicant aplicant) {
 		String nume = input.next();
@@ -26,12 +26,12 @@ public abstract class IReader {
 		String[] vect = new String[nr];
 		for (int i = 0; i < nr; i++)
 			vect[i] = input.next();
-		
+
 		aplicant.setNume(nume);
 		aplicant.setPrenume(prenume);
 		aplicant.setVarsta(varsta);
 		aplicant.setPunctaj(punctaj);
-		aplicant.setNr_proiecte(nr);
-		aplicant.setVectorDenumiri(vect,nr);
+		aplicant.setnrProiecte(nr);
+		aplicant.setVectorDenumiri(vect, nr);
 	}
 }

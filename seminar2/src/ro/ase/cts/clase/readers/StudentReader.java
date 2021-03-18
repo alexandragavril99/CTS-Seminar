@@ -9,12 +9,12 @@ import java.util.Scanner;
 import ro.ase.cts.clase.Aplicant;
 import ro.ase.cts.clase.Student;
 
-public class StudentReader extends IReader{
-	
+public class StudentReader extends IReader {
+
 	public StudentReader(String filePath) {
 		super(filePath);
 	}
-	
+
 	public List<Aplicant> readAplicants() throws FileNotFoundException, NumberFormatException {
 		Scanner input = new Scanner(new File(super.filePath));
 		input.useDelimiter(",|\n");
@@ -23,8 +23,8 @@ public class StudentReader extends IReader{
 		while (input.hasNext()) {
 			Student student = new Student();
 			super.citireAplicant(input, student);
-			int an_studii = input.nextInt();
-			student.setAn_studii(an_studii);
+			int anStudii = input.nextInt();
+			student.setanStudii(anStudii);
 			String facultate = (input.next()).toString();
 			student.setFacultate(facultate);
 			studenti.add(student);
