@@ -6,6 +6,7 @@ import ro.ase.cts.clase.FactoryPersonal;
 import ro.ase.cts.clase.IFactory;
 import ro.ase.cts.clase.PersonalSpital;
 import ro.ase.cts.clase.TipPersonal;
+import ro.ase.cts.prototype.Reteta;
 
 public class Main {
 	
@@ -28,6 +29,13 @@ public class Main {
 		afisareInformatiiPersonalSpital(new FactoryAsistent(),"Mircea");
 		afisareInformatiiPersonalSpital(new FactoryAsistent(),"Mihai");
 		afisareInformatiiPersonalSpital(new FactoryInfirmier(),"Ana");
+	;
+		Reteta reteta = new Reteta("Paracetamol",250);
+		Reteta reteta1 = (Reteta) reteta.copiaza();
+		
+		System.out.println();
+		System.out.println(reteta);
+		System.out.println(reteta1);
 	}
 
 }
