@@ -13,8 +13,8 @@ public class StudentTests {
 		String nume = "Costica";
 		Student student = new Student(nume);
 		
-		assertEquals(nume, student.getNume());
-		assertNotNull(student.getNote());
+		assertEquals("Costica", student.getNume());
+		assertNotNull("Atributul note nu a fost initializat", student.getNote());
 	}
 	
 	@Test
@@ -82,5 +82,44 @@ public class StudentTests {
 		student.adaugaNota(8);
 		
 		 assertFalse(student.areRestante());
+	}
+	
+	@Test
+	public void testGetNotaExceptie() {
+		Student student = new Student();
+		student.adaugaNota(5);
+		student.adaugaNota(7);
+
+		//1
+		try {
+			//2
+			student.getNota(5);
+			//3
+			fail("Nu trebuia sa ajunga aici. Metoda nu arunca exceptie.");
+		} catch (IndexOutOfBoundsException e) {
+			//4
+		} catch(Exception e) {
+			fail("Metoda arunca o alta exceptie");
+		}
+		//5
+	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testGetNotaExceptieV4() {
+		Student student = new Student();
+		student.adaugaNota(5);
+		student.adaugaNota(7);
+		
+		student.getNota(5);
+	}
+	
+	//junit5
+	@Test
+	public void testGetNotaExceptieV5() {
+		Student student = new Student();
+		student.adaugaNota(5);
+		student.adaugaNota(7);
+		
+		assertThrows(IndexOutOfBoundsException.class, () -> {student.getNota(5);});
 	}
 }
